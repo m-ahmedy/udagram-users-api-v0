@@ -1,5 +1,5 @@
 {
-  "name": "udagram-users-api",
+  "name": "udagram-users-api-v0",
   "version": "2.0.0",
   "description": "",
   "main": "src/server.js",

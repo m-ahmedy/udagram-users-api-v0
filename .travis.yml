@@ -16,7 +16,7 @@ before_script:
 script:
   - docker --version # print the version for logging
   - docker build -t udagram-users-v0-api .
-  - docker tag simple-express YOUR_DOCKER_HUB/udagram-users-v0-api:latest
+  - docker tag simple-express mahmoud1ahmedy/udagram-users-v0-api:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

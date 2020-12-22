@@ -29,10 +29,8 @@ import { User } from './models/User';
     }));
 
     app.get('/health', async (req: Request, res: Response) => {
-        // Check database connecction
-        sequelize.authenticate()
-            .then(() => res.status(200).send())
-            .catch(e => res.status(500).send())
+        // Health check
+        res.status(200).send()
     });
 
     app.use('/', UserRouter);

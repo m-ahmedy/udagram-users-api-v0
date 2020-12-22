@@ -3,10 +3,11 @@ import { config } from './config/config';
 
 
 // Configure AWS
-if (config.aws_profile !== 'DEPLOYED') {
-  const credentials = new AWS.SharedIniFileCredentials({ profile: 'default' });
-  AWS.config.credentials = credentials;
-}
+const credentials = new AWS.Credentials({
+  accessKeyId: config.credentials.aws_access_key_id,
+  secretAccessKey: config.credentials.aws_secret_access_key,
+});
+AWS.config.credentials = credentials;
 
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',

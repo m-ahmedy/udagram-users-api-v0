@@ -1,3 +1,4 @@
+import { getGetSignedUrl, getPutSignedUrl, s3 } from './shared/aws';
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 import { sequelize } from './shared/sequelize';
@@ -37,6 +38,7 @@ import { User } from './models/User';
 
     // Start the Server
     app.listen(port, () => {
+        console.log(getPutSignedUrl('hi.png'))
         console.log(`server running ${config.url}`);
         console.log(`press CTRL+C to stop server`);
     });

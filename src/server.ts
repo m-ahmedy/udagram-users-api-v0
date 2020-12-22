@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import { sequelize } from './shared/sequelize';
 
 import { UserRouter } from './routes/user.router';
@@ -27,6 +27,13 @@ import { User } from './models/User';
         methods: 'GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE',
         origin: config.url,
     }));
+
+    app.get('/health', async (req: Request, res: Response) => {
+        // Check database connecction
+        sequelize.authenticate()
+            .then(() => res.status(200).send())
+            .catch(e => res.status(500).send())
+    });
 
     app.use('/', UserRouter);
 

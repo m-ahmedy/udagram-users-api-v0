@@ -38,7 +38,7 @@ import { User } from './models/User';
 
     // Start the Server
     app.listen(port, () => {
-        console.log(getPutSignedUrl('hi.png'))
+        console.log(config)
         console.log(`server running ${config.url}`);
         console.log(`press CTRL+C to stop server`);
     });

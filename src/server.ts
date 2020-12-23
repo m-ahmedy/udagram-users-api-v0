@@ -31,14 +31,13 @@ import { User } from './models/User';
 
     app.get('/health', async (req: Request, res: Response) => {
         // Health check
-        res.status(200).send()
+        res.status(200).send('All clear')
     });
 
     app.use('/', UserRouter);
 
     // Start the Server
     app.listen(port, () => {
-        console.log(config)
         console.log(`server running ${config.url}`);
         console.log(`press CTRL+C to stop server`);
     });
